@@ -723,7 +723,7 @@ function createInjector(modulesToLoad, strictDi) {
       forEach(modulesToLoad, function(module) {
         if (! _loadedModules.get(module)) {
           dirty = true;
-          runBlocks.concat(loadModules([module]));
+          runBlocks = runBlocks.concat(loadModules([module]));
         }
       });
       
@@ -735,8 +735,8 @@ function createInjector(modulesToLoad, strictDi) {
             $rootElement = _instanceInjector.get('$rootElement'),
             $compile = _instanceInjector.get('$compile');
         
-        $compile($rootElement)($rootScope);
-        $rootScope.$digest();
+        //$compile($rootElement)($rootScope);
+        //$rootScope.$digest();
       }
       
       return dirty;
